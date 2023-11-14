@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
+const url = "http://localhost:3000/products"
+
 function App() {
+  const [products, setProducts] = useState([])
+
+  // 1 - resgatando dados
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Lista de Produtos</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} - R$: {product.price}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
