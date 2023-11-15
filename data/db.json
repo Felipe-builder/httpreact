@@ -1,56 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Veal - Insides Provini",
-      "price": 18.9
-    },
-    {
-      "id": 2,
-      "name": "Beer - Heinekin",
-      "price": 73.01
-    },
-    {
-      "id": 3,
-      "name": "Wine - Rhine Riesling Wolf Blass",
-      "price": 36.18
-    },
-    {
-      "id": 4,
-      "name": "Apple - Royal Gala",
-      "price": 38.07
-    },
-    {
-      "id": 5,
-      "name": "Beans - Butter Lrg Lima",
-      "price": 95.95
-    },
-    {
-      "id": 6,
-      "name": "Yukon Jack",
-      "price": 95.35
-    },
-    {
-      "id": 7,
-      "name": "Pan Grease",
-      "price": 39.14
-    },
-    {
-      "id": 8,
-      "name": "Wine - Two Oceans Cabernet",
-      "price": 67.32
-    },
-    {
-      "id": 9,
-      "name": "Tart Shells - Barquettes, Savory",
-      "price": 18.91
-    },
-    {
-      "id": 10,
-      "name": "Pork - Back, Short Cut, Boneless",
-      "price": 95.69
-    },
-    {
       "id": 11,
       "name": "Cheese - St. Paulin",
       "price": 83.98
@@ -501,53 +451,9 @@
       "price": 12.84
     },
     {
-      "name": "Teste",
-      "price": "15",
-      "id": 101
-    },
-    {
-      "name": "Teste",
-      "price": "15",
-      "id": 102
-    },
-    {
-      "name": "algodão",
-      "price": "4",
-      "id": 103
-    },
-    {
-      "name": "algodão",
-      "price": "4",
-      "id": 104
-    },
-    {
-      "name": "algodão",
-      "price": "4",
-      "id": 105
-    },
-    {
-      "name": "sorvete",
-      "price": "30",
-      "id": 106
-    },
-    {
-      "name": "sa",
+      "name": "redd",
       "price": "12",
-      "id": 107
-    },
-    {
-      "id": 108
-    },
-    {
-      "id": 109
-    },
-    {
-      "id": 110
-    },
-    {
-      "name": "cronos",
-      "price": "1231",
-      "id": 111
+      "id": 103
     }
   ]
 }

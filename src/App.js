@@ -25,9 +25,14 @@ function App() {
     }
     
     // 5 - refatorando post
-    httpConfig(product, "POST")
+    httpConfig({data: product, method: "POST"})
     setName("");
     setPrice("");
+  }
+
+  const handleDelete = async (id) => {
+    console.log('id', id)
+    httpConfig({id, method: "DELETE"})
   }
 
   return (
@@ -37,9 +42,9 @@ function App() {
       {loading && <p>Carregando dados...</p>}
       {error && <p>{error}</p>}
       {(!loading && !error) && <ul>
-        {items && items.map((product) => (
+        {Array.isArray(items) && items.map((product) => (
           <li key={product.id}>
-            {product.name} - R$: {product.price}
+            {product.name} - R$: {product.price} <button className='delete' onClick={() => handleDelete(product.id)}>DELETAR</button>
           </li>
         ))}
       </ul>}

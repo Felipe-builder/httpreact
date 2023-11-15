@@ -53,3 +53,12 @@ form input {
   flex-direction: column;
   margin-bottom: 15px;
 }
+
+.delete {
+  background-color: rgb(222, 85, 85);
+  color: #FFF;
+  border: none;
+}
+.delete:hover {
+  background-color: rgb(240, 3, 3);
+}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 // 4 - custom hook
 export const useFetch = (url) => {
   const [data, setData] = useState(null);
+  const [id, setId] = useState('');
 
   // 5 - refatorando post
   const [config, setConfig] = useState();
@@ -16,18 +17,23 @@ export const useFetch = (url) => {
   const [error, setError] = useState(null);
 
 
-  const httpConfig = (data, method) => {
-    if (method === "POST") {
-      setConfig({
-        method,
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+  const httpConfig = ({ id = undefined, data = {}, method }) => {
+    let config = {
+      method,
+      headers: {
+        "Content-type": "application/json"
+      }
+    };
 
-      setMethod(method)
+    if (method === "POST") {
+      config.body = JSON.stringify(data);
+    } else if (method === "DELETE" && id !== undefined) {
+      setId(`${id}`);
     }
+
+    setConfig(config);
+    setMethod(method);
+
   }
 
   useEffect(() => {
@@ -52,17 +58,23 @@ export const useFetch = (url) => {
   // 5- refatorando post 
   useEffect(() => {
     const httpRequest = async () => {
+      let json
       if (method === 'POST') {
         let fetchOptions = [url, config]
-
+   
         const res = await fetch(...fetchOptions);
-        const json = await res.json()
-
-        setCallFetch(json)
+        json = await res.json()
       }
+      if (method === 'DELETE') {
+        let fetchOptions = [url+`/${id}`, config]
+   
+        const res = await fetch(...fetchOptions);
+        json = await res.json()
+      }
+      setCallFetch(json)
     }
 
     httpRequest();
-  }, [config, method, url])
+  }, [config, method, url, id])
   return { data, httpConfig, loading, error }
 }
